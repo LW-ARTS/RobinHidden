@@ -1,0 +1,26 @@
+title = "Local source privacy scan"
+
+[extend]
+useDefault = true
+
+[[rules]]
+id = "literal-evm-private-key"
+description = "Literal 32-byte private scalar assigned to a private-key field"
+regex = '''(?i)(?:private[_-]?key|privkey|secret[_-]?key|priv)["']?\s*[:=]\s*["'](?:0x)?([0-9a-f]{64})["']'''
+secretGroup = 1
+
+[[rules]]
+id = "literal-recovery-phrase"
+description = "Literal recovery phrase assigned to a seed field"
+regex = '''(?i)(?:mnemonic|seed[_-]?phrase|recovery[_-]?phrase)["']?\s*[:=]\s*["']([a-z]+(?:\s+[a-z]+){11,23})["']'''
+secretGroup = 1
+
+[allowlist]
+description = "Four reviewed public package hashes/event topic; not credential exceptions"
+regexTarget = "secret"
+regexes = [
+  "a867c8e067ce364366cb782e74489e99bfed469f5447b4b1829ba391077ae067", # Coincurve keys.py SHA-256
+  "b7db7c299bb367852cdf4012521236ecc64f3cf2b2e041114439002be94ced34", # cryptography/hazmat/primitives/keywrap.py SHA-256
+  "7165f5665b1c98ec9392fb61881a5458b712441b6a9699fe9a806ee1eb019b32", # cffi/api.py SHA-256
+  "0x8d4aad4953d0ca700d468f3753aa14432d1b35b43ec6409f051fb6aa43a89607", # Public TokenLaunched event topic
+]

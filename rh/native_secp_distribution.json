@@ -1,0 +1,24 @@
+{
+  "coincurve_version": "21.0.0",
+  "files_sha256": {
+    "__init__.py": "d39fbf8fbeea25b1eeac8152ae7b26ec6899d5172cffc33f322695fe2e674227",
+    "_cffi_backend.cpython-312-darwin.so": "eaacbd829fdcdb4023fcb70e6b7786083a0528577f19012a016569299d4b949b",
+    "_libsecp256k1.cpython-312-darwin.so": "852fdb8efe68e56a69d1239998b782c0b0f8426c0a91c14f5c35234c92dedd38",
+    "context.py": "708e2097f3923f37417a786999325354bbf35c9f2cf215c1f308b527612b3cc4",
+    "der.py": "3081dd12a5d7c9b10ee3e72dc31c13f7a707a2afd2962c214c50d715ca3e8a02",
+    "ecdsa.py": "d56bf5de5340688d0b39ff6ad9252633888445650a9b0da17153066610fad90f",
+    "flags.py": "ff644e3877522b9c90a6d7d8e772c420b138ed261d3e5a61b38224289fc5e93c",
+    "keys.py": "a867c8e067ce364366cb782e74489e99bfed469f5447b4b1829ba391077ae067",
+    "types.py": "62669e9a70ec23818b4a3cbb3010cf063b6d07877a6c0c4b53f60d57009ddae8",
+    "utils.py": "a56684f72b11b3b75a77af74a6f0051ee015cfd18a40106a906f5b4558b72087"
+  },
+  "libsecp256k1_upstream_version": "0.6.0",
+  "machine": "arm64",
+  "platform": "darwin",
+  "python": [
+    3,
+    12
+  ],
+  "wheel": "coincurve-21.0.0-cp312-cp312-macosx_11_0_arm64.whl",
+  "wheel_sha256": "1cb1cd19fb0be22e68ecb60ad950b41f18b9b02eebeffaac9391dc31f74f08f2"
+}
