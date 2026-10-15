@@ -14,10 +14,10 @@ def main():
     with tempfile.TemporaryDirectory(prefix="rh-native-public-audit-") as temp:
         target = Path(temp)
         shutil.copytree(ROOT / "rh", target / "rh", ignore=shutil.ignore_patterns("__pycache__"))
-        folder = target / "auditoria-producao"
+        folder = target / "audit"
         folder.mkdir()
         for name in SCRIPTS + ["verify_custody_local.py"]:
-            shutil.copyfile(ROOT / "auditoria-producao" / name, folder / name)
+            shutil.copyfile(ROOT / "audit" / name, folder / name)
         runner = '''import runpy,sys
 from pathlib import Path
 def guard(event,args):

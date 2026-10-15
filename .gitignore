@@ -37,3 +37,9 @@ local-evidence/
 # Dependency hash locks are deliberately retained.
 !requirements-signer.lock
 !requirements-custody.lock
+
+# Internal audit and privacy tools
+.gitleaks.toml
+LOCAL_CLEANUP.md
+verify_local_privacy.py
+

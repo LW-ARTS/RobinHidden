@@ -9,8 +9,9 @@ is `.venv-signer`. Its installation is isolated from the system Python.
 Use this interpreter for local validation:
 
 ```sh
-.venv-signer/bin/python auditoria-producao/run_homologation_offline.py
-.venv-signer/bin/python auditoria-producao/run_homologation_offline.py --native
+.venv-signer/bin/python audit/run_native_audit_package.py
+.venv-signer/bin/python -m unittest audit/test_native_signer.py
+.venv-signer/bin/python -m unittest audit/test_native_secp_security.py
 .venv-signer/bin/python -c 'from rh.native_secp import backend_info; print(backend_info())'
 ```
 
@@ -52,9 +53,5 @@ functional/provenance verification are distinguished from an external audit
 certificate in the current report. Python input conversion, caller-held key
 objects, custody AES, memory erasure and whole-host physical side-channel
 assurance are outside the native primitive's guarantees.
-
-See [the native signer evidence report](./auditoria-producao/NATIVE_SIGNER_REVALIDATION.md).
-
-A separate AI source/binary review now covers the exact pinned artifacts and final binding. Four integration issues were corrected with independent rechecks; formal external audit remains unestablished. The bridge additionally checks selected source bytecode caches, loaded extension origins and semantic signature/public-point outputs. See [the exact-artifact review](./auditoria-producao/NATIVE_EXACT_ARTIFACT_REVIEW.md).
 
 Custody AES additionally requires the pinned native Rust/OpenSSL dependency set. Install both `requirements-signer.lock` and `requirements-custody.lock`; follow [NATIVE_CUSTODY_SETUP.md](./NATIVE_CUSTODY_SETUP.md). The signer profile/binary are unchanged by this addition.

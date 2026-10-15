@@ -30,9 +30,9 @@ arbitrarily compromised process memory.
 Safe reproduction from the repository root:
 
 ```sh
-.venv-signer/bin/python auditoria-producao/run_homologation_offline.py
-.venv-signer/bin/python auditoria-producao/run_homologation_offline.py --custody-native
-.venv-signer/bin/python auditoria-producao/compare_native_aes.py auditoria-producao/native-aes-2026-10-13
+.venv-signer/bin/python audit/run_native_audit_package.py
+.venv-signer/bin/python -m unittest audit/test_native_aes.py
+.venv-signer/bin/python -m unittest audit/test_native_aes_security.py
 .venv-signer/bin/python -c 'from rh.native_aes import backend_info; print(backend_info())'
 ```
 
@@ -54,4 +54,3 @@ The independent PyCryptodome comparison oracle is a test-only dependency under
 certify this OpenSSL 4.0.3 AES-CTR image. Cryptography 50.0.2's documentation
 states its code/documentation have not received an external audit. This setup
 is a tested native migration, not an exact-build/binding audit or FIPS claim.
-See [the current AES evidence report](./auditoria-producao/NATIVE_AES_REVALIDATION.md).
