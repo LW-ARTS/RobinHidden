@@ -8,7 +8,7 @@ on:
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: macos-14
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -18,6 +18,15 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Install verified native dependencies
+        run: |
+          pip install --require-hashes --no-deps -r requirements-signer.lock
+          pip install --require-hashes --no-deps -r requirements-custody.lock
+
       - name: Run offline test suite
         run: |
           python3 selftest.py
+
+      - name: Run native audit suite
+        run: |
+          python3 audit/run_native_audit_package.py
